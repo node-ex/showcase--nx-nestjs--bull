@@ -8,7 +8,7 @@ import { Job } from 'bull';
 export class MyTaskQueueConsumer {
   @Process(MY_TASK_NAME)
   async [MY_TASK_NAME](job: Job<MyTaskDataType>): Promise<MyTaskReturnType> {
-    console.log('Processing job', job);
+    console.log('Processing job', job.name, job.data);
     return Promise.resolve(undefined);
   }
 }
